@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.14/angular-ui-router.min.js"></script>
+
+    <script src="a01.js"></script>
+    <style>
+        .well {
+            margin-bottom: 0px;
+        }
+    </style>
+</head>
+<body ng-app="app">
+    <div class="row">
+        <div class="col-sm-12 well">
+            Header... | <a href="#!/">Home</a>
+        </div>
+    </div>
+    <div class='row'>
+        <div class="col-sm-3 well" style="height: 900px;">
+            <ul>
+                <li><a href="#!/first-msg/40/50">Msg1</a></li>
+                <li><a href="#!/second-msg/200/300">Msg2</a></li>
+                <li><a href="#!/third-msg">Msg3-no-param</a></li>
+                <li><a href="#!/third-msg/10">Msg3-one-param</a></li>
+                <li><a href="#!/third-msg/10/30">Msg3-two-param</a></li>
+                <li><a href="#!/fourth-msg/20/30">Msg4-two-param</a></li>
+                <li><a href="#!/fifth-msg//">Msg5-no-param</a></li>
+                <li><a href="#!/fifth-msg/5/">Msg5-one-param</a></li>
+                <li><a href="#!/sixth-msg/">Msg6-no-param</a></li>
+                <li><a href="#!/sixth-msg/5">Msg6-one-param</a></li>
+                <li><a href="#!/seventh-msg/-/50">Msg7-two-param-a-squashed</a></li>
+                <li><a href="#!/seventh-msg/30/~">Msg7-two-param-b-squashed</a></li>
+                <li><a href="#!/eigth-msg?a=10&b=20">Msg8-two-param</a></li>
+                <li><a href="#!/eigth-msg?a=10">Msg8-one-param</a></li>
+                <li><a href="#!/eigth-msg">Msg8-no-param</a></li>
+                <li><a href="#!/ninth-msg?a=10&b=20">Msg9-two-param</a></li>
+                <li><a href="#!/ninth-msg?a=10">Msg9-one-param</a></li>
+                <li><a href="#!/ninth-msg">Msg9-no-param</a></li>
+                <li><a href="#!/ninth-msg?a=10&b=20&b=30&b=40">Msg9-array-param</a></li>
+            </ul>
+            <hr>
+            <ul>
+                <li><a ui-sref="firstMessage({a:10, b:20})">Msg1</a></li>
+                <li><a ui-sref="secondMessage({a:200, b:300})">Msg2</a></li>
+                <!-- <li><a ui-sref="thirdMessage(null)">Msg3-no-param</a></li> -->
+                <li><a ui-sref-opts="{inherit: false}" ui-sref="thirdMessage()">Msg3-no-param</a></li>
+                <li><a ui-sref="thirdMessage1({a:10})">Msg3-one-param</a></li>
+                <li><a ui-sref="thirdMessage2({a:10, b:30})">Msg3-two-param</a></li>
+                <li><a ui-sref="fourthMessage({a:20, b:30})">Msg4-two-param</a></li>
+                <li><a ui-sref="fourthMessage({a:null, b:30})">Msg4-one-param-b</a></li>
+                <li><a ui-sref="fourthMessage({a:20, b:null})">Msg4-one-param-a</a></li>
+                <li><a ui-sref="fourthMessage({a:null, b:null})">Msg4-no-param</a></li>
+                <li><a ui-sref="fifthMessage({a:null, b:null})">Msg5-no-param</a></li>
+                <li><a ui-sref="eigthMessage({a:10, b:20})">Msg8-two-param</a></li>
+                <li><a ui-sref="eigthMessage({a:10})">Msg8-one-param</a></li>
+                <li><a ui-sref="eigthMessage()">Msg8-no-param</a></li>
+                <li><a ui-sref="ninthMessage({a:10, b:20})">Msg9-two-param</a></li>
+                <li><a ui-sref="ninthMessage({a:10})">Msg9-one-param</a></li>
+                <li><a ui-sref="ninthMessage()">Msg9-no-param</a></li>
+                <li><a ui-sref="ninthMessage({a:10, b:[20,30,40]})">Msg9-array-param</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 well" style="height: 900px;">
+            <div ui-view></div>
+        </div>
+    </div>
+</html>
